@@ -1,0 +1,45 @@
+featured_json:
+  default: /latest.json
+
+featured_tag:
+  default: featured
+
+thumb_default:
+  default: https://thuvienmuasam.com/uploads/default/original/1X/3db89f04fa083ed69d132f9f3ea4c3506317829c.png
+
+hide_featured_tag:
+  default: false
+  description: When this is enabled the featured tag will be hidden from users that aren't admins/moderators.
+
+hide_category:
+  default: ""
+  description: Topics from these categories are not shown separated by a comma
+
+show_on_url:
+  default: /page/2/
+  description: The position you want to display matches the page url. (dev)
+show_on:
+  default: homepage
+  type: enum
+  choices:
+    - top_menu
+    - homepage
+    - all
+  description: top_menu refers to the <a href="/admin/site_settings/category/all_results?filter=top_menu">top menu site setting</a>
+
+show_for:
+  default: everyone
+  type: enum
+  choices:
+    - everyone
+    - logged_in
+    - logged_out
+
+show_category_list:
+  default: true
+
+show_title:
+  default: true
+
+title_text:
+  default: "<a href='/latest'>Bài viết mới</a>"

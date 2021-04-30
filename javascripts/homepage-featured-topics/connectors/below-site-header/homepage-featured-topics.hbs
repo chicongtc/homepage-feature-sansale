@@ -1,0 +1,105 @@
+{{#if (theme-setting "show_category_list")}}
+{{#if displayCategoryList}}
+<div class="category-homepage-wrapper">
+  <div class="category-wapper">
+    <div class="b-sub">
+      <ul class="b-sub__items-0 h-nav-sub-items">
+        <li class="b-sub__item-0"><a href="#!">Danh mục: </a></li>
+        <li class="b-sub__item-0"><a href="https://thuvienmuasam.com/c/goi-y/8">Gợi ý</a></li>
+        <li class="b-sub__item-0"><a href="https://thuvienmuasam.com/c/huong-dan-mua-sam/9">Hướng dẫn mua sắm</a></li>
+        <li class="b-sub__item-0"><a href="https://thuvienmuasam.com/c/nha-cua-doi-song/37">Nhà cửa Đời sống</a></li>
+        <li class="b-sub__item-0"><a href="https://thuvienmuasam.com/c/suc-khoe-lam-dep/40">Sức khỏe Làm đẹp</a></li>
+        <li class="b-sub__item-0"><a href="https://thuvienmuasam.com/c/thuong-hieu/22">Thương hiệu</a></li>
+        <li class="b-sub__item-0"><a href="https://thuvienmuasam.com/c/thiet-bi-phu-kien-so/33">Thiết bị Phụ kiện số</a></li>
+        <li class="b-sub__item-0"><a href="https://thuvienmuasam.com/c/hoi-dap/10">Hỏi đáp</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{{/if}}
+{{/if}}
+
+{{#if showFor}}
+  {{#if displayHomepageFeatured}}
+    <div class="custom-homepage-wrapper">
+      <div class="wrap custom-homepage">
+        <div class="featured-topic-wrapper">
+          {{#if (theme-setting "show_title")}}
+            {{titleElement}}
+          {{/if}}
+          {{conditional-loading-spinner condition=loadingFeatures}}
+          <div class="featured-topics">
+            {{#each customFeaturedTopics as |t|}}
+              <div class="featured-topic" data-index="{{@index}}">
+                <div class="featured-topic-image">
+                  <a href="/t/{{t.slug}}/{{t.id}}">
+                    <img class="featured-topic-thumbnail" 
+                        src="{{t.thumbnails.1.url}}"
+                        srcset="{{t.thumbnails.0.url}}" 
+                        width={{t.thumbnails.0.width}}
+                        height={{t.thumbnails.0.height}}
+                        loading="lazy"
+                      />
+                  </a>
+                </div>
+                <div class="featured-topic-meta">
+                  <h5 class="featured-topic-category-name">{{category-link t.category}}</h5>
+                  <h3 class="featured-topic-title">{{topic-link t}}</h3>
+                  <span class="featured-topic-date-time">{{format-date t.bumpedAt format="medium-with-ago" noTitle="true"}}</span>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+        <div class="latest-topic-wrapper">
+          {{conditional-loading-spinner condition=loadingFeatures}}
+            <div class="b-grid b-page__grid">
+              <div class="b-grid b-grid__cols2">
+                {{#each customLatestTopicsLeft as |t|}}
+                <div data-index="{{@index}}" class="b-brief b-grid__brief  b-grid__cols2  b-grid__rows4">
+                  <div class="b-meta b-brief__meta is-color">
+                    <h3 class="b-meta__title b-brief__hot dt-clamp dt-clamp-3">{{topic-link t}}</h3>
+                    <div class="b-meta__text dt-clamp dt-clamp-3">{{raw "list/topic-excerpt" topic=t}}</div>
+                    <div class="b-meta__labels">
+                      <span>{{format-date t.bumpedAt format="medium-with-ago" noTitle="true"}}</span>
+                    </div>
+                  </div>
+                  <div class="b-brief__image">
+                    <img class="latest-topic-thumbnail" 
+                      src="{{t.thumbnails.1.url}}"
+                      srcset="{{t.thumbnails.0.url}}" 
+                      width={{t.thumbnails.0.width}}
+                      height={{t.thumbnails.0.height}}
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+              <div class="b-grid b-grid__cols2">
+              {{#each customLatestTopicsRight as |t|}}
+              <div data-index="{{@index}}" class="b-snippet b-grid__snippet  b-grid__cols2  b-grid__rows2">
+                <div class="b-meta b-snippet__meta">
+                  <h3 class="b-meta__title b-brief__hot dt-clamp dt-clamp-2">{{topic-link t}}</h3>
+                  <div class="b-meta__labels">
+                    <span>{{format-date t.bumpedAt format="medium-with-ago" noTitle="true"}}</span>
+                  </div>
+                </div>
+                <div class="b-snippet__image">
+                  <img class="latest-topic-thumbnail" 
+                    src="{{t.thumbnails.1.url}}"
+                    srcset="{{t.thumbnails.0.url}}" 
+                    width={{t.thumbnails.0.width}}
+                    height={{t.thumbnails.0.height}}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>   
+      </div>
+    </div>
+  {{/if}}
+{{/if}}
