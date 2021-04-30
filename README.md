@@ -5,4 +5,4 @@ By default the theme will feature the 5 most recent topics tagged featured and w
 
 <a href="https://meta.discourse.org/t/homepage-feature-component/144264">Read more on our Meta community.</a><br/>
 
-The plugin here is further modified according to the needs of the site by Bcat95. This author's original work ( see forked).
+The plugin here is further modified according to the needs of the site by chicongtc. This author's original work ( see forked).
