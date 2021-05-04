@@ -61,6 +61,23 @@ export default {
                 document.querySelector("html").classList.remove(FEATURED_CLASS);
                 component.set("displayHomepageFeatured", false);
               }
+            // component customLatestTopicsLeft
+                                let customLatestTopicsLeft = [];
+                                customTopics
+                                    .slice(4, 12)
+                                    .forEach(topic =>
+                                        customLatestTopicsLeft.push(Topic.create(topic))
+                                    );
+                                component.set("customLatestTopicsLeft", customLatestTopicsLeft);
+
+                                // component customLatestTopicsRight
+                                let customLatestTopicsRight = [];
+                                customTopics
+                                    .slice(13, 29)
+                                    .forEach(topic =>
+                                        customLatestTopicsRight.push(Topic.create(topic))
+                                    );
+                                component.set("customLatestTopicsRight", customLatestTopicsRight);
             });
         } else {
           document.querySelector("html").classList.remove(FEATURED_CLASS);
